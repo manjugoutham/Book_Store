@@ -16,7 +16,7 @@ func Register(db *sql.DB) http.HandlerFunc {
 
 		if r.Method != "POST" {
 			w.WriteHeader(http.StatusMethodNotAllowed)
-			fmt.Fprint(w, "method not allowed ...!")
+			fmt.Fprint(w, "POST method not allowed ...!")
 			return
 		}
 
