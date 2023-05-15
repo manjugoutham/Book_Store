@@ -2,7 +2,9 @@ package main
 
 import (
 	bookcontroller "bookstore/BookDetailsController"
+	ordercontroller "bookstore/orderController"
 	usercontroller "bookstore/userRegistrationControl"
+
 	"database/sql"
 	"fmt"
 	"net/http"
@@ -31,6 +33,11 @@ func main() {
 	http.HandleFunc("/getBookByName/", bookcontroller.Getbookbyname(db))
 	http.HandleFunc("/deleteById/", bookcontroller.Deletebyid(db))
 	http.HandleFunc("/updateBook/", bookcontroller.UpdateBook(db))
+
+	http.HandleFunc("/newOrder", ordercontroller.NewOrder(db))
+	http.HandleFunc("/allOrders", ordercontroller.GetAllOrders(db))
+	http.HandleFunc("/updateOrder/", ordercontroller.CancelOrder(db))
+	http.HandleFunc("/getOrderById/", ordercontroller.GetByOrderId(db))
 
 	fmt.Println("Port number : 8000")
 	http.ListenAndServe("localhost:8000", nil)

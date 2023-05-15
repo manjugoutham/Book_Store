@@ -12,3 +12,12 @@ type Books struct {
 	Author_Name string `json:"author_name"`
 	Price       int    `json:"price"`
 }
+
+type Orders struct {
+	OrderId   int    `json:"orderid"`
+	UserId    int    `json:"userid"`
+	BookId    int    `json:"bookid"`
+	OrderDate string `josn:"orderdate"`
+	Quantity  int    `json:"quantity"`
+	Status    string `josn:"status"`
+}
